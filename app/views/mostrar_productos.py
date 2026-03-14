@@ -76,3 +76,4 @@ def products_view(page: ft.Page) -> ft.Control:
 
     page.run_task(actualizar_data)
     return tabla
+#cambio
