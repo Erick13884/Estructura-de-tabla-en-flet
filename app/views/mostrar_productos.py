@@ -3,7 +3,7 @@ from typing import Any
 from app.services.transacciones_api_productos import list_products, get_product, create_product, update_product, delete_product
 from app.components.popup import show_popup, show_popup_auto_close, show_snackbar, confirm_dialog
 from app.components.error import ApiError, api_error_to_text
-from app.styles.estilos import Colors, Textos_estilos
+from app.styles.estilos import Colors, Textos_estilos, Card
 
 def products_view(page: ft.Page) -> ft.Control:
     rows_data: list[dict[str, Any]] = []
@@ -67,4 +67,8 @@ def products_view(page: ft.Page) -> ft.Control:
         controls=[btn_nuevo, total_text, ft.Container(content=tabla)]
     )
 
-    return contenido
+    # return contenido
+
+    tarjeta = ft.Container(content=contenido,**Card.tarjeta)
+
+    return tarjeta
