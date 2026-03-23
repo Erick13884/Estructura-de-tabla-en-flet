@@ -71,4 +71,8 @@ def products_view(page: ft.Page) -> ft.Control:
 
     tarjeta = ft.Container(content=contenido,**Card.tarjeta)
 
-    return tarjeta
+    # return tarjeta
+
+    final = ft.Container(expand=True, alignment=ft.Alignment(0, -1), content=tarjeta)
+
+    return final
