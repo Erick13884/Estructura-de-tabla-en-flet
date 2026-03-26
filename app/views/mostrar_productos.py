@@ -10,13 +10,13 @@ def products_view(page: ft.Page) -> ft.Control:
     def inicio_nuevo_producto(_e):
         async def crear_nuevo_producto(data:dict):
             try:
-                await create_product(data)
-                await show_snackbar(page, "Exito", "Producto creado", bgcolor=Colors.SUCCESS)
+                create_product(data)
+                show_snackbar(page, "Exito, producto creado")
                 await actualizar_data()
             except ApiError as ex:
                 await show_popup(page, "Error", api_error_to_text(ex))
             except Exception as ex:
-                await show_snackbar(page, "Error", str(ex), bgcolor=Colors.DANGER)
+                show_snackbar(page, "Error", str(ex))
 
         dlg, open_, close = formulario_nuevo_editar_producto(page, on_submit=crear_nuevo_producto, initial=None)
         open_()

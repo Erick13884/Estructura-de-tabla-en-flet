@@ -40,7 +40,7 @@ def formulario_nuevo_editar_producto(page: ft.Page, on_submit, initial: dict | N
             await show_popup(page, "Validación", "Cantidad y stocks deben ser números enteros.")
 
     btn_cancelar = ft.TextButton("Cancelar", on_click=lambda e: close())
-    btn_guardar = ft.Button("Guardar", on_click=lambda e: page.run_task(save))
+    btn_guardar = ft.Button("Guardar", on_click=lambda e: page.run_task(save, e))
 
     dlg = ft.AlertDialog(
         modal=True,
